@@ -1,0 +1,1 @@
+mongoimport --host 'localhost:27017'  --db freedomdb --jsonArray --collection agents --file agents.json

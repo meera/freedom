@@ -1,0 +1,10 @@
+[
+    {"name": "Maya",
+    "skills": ["sewing", "gardening"]
+    },
+    {
+        "name": "Revati",
+        "skills": ["kickboxing", "martialarts"]
+    }
+
+]
