@@ -1,0 +1,53 @@
+Design Notes and After thoughts
+
+I choose to complete the project using Nodejs, Express, MongoDb and used Postman to test and Jest for unit tests.
+
+Design Decisions: 
+
+Whether to keep Agent in-memory or in database.
+If Agent list is limited and Task are rapidly created and destroyed, I would have choosen to have Agents in memory.
+In memory approach would have limited server's ability to deploy on cluster - I choose to go with Database approach.
+
+I used two Collectons - Agent & Task. Both the collections have pointers to other collection.
+Commonly used fields are replicated for speed.
+
+By using Mongodb, I was able to leverage built-in functionality such as 
+    - Search agents based on skill-suites
+    - Sort agents based on time task assigned and pick Agent who was assigned early.
+
+TODO: 
+-- Need to work on DockerContainer.
+-- More Integration Tests
+-- Performance Testing
+-- Need more Code Coverage.
+-- Agent & Task update needs to be enclosed in a transaction.
+
+
+npx jest --coverage
+(node:7508) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+ PASS  src/test/integration/Agent.test.js
+(node:7506) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+ PASS  src/test/integration/Task.test.js
+ PASS  src/test/integration/index.test.js
+----------------|----------|----------|----------|----------|-------------------|
+File            |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------|----------|----------|----------|----------|-------------------|
+All files       |    45.65 |        0 |        0 |    47.73 |                   |
+ src            |    90.91 |      100 |        0 |      100 |                   |
+  App.js        |    90.91 |      100 |        0 |      100 |                   |
+ src/controller |    15.52 |        0 |        0 |    16.36 |                   |
+  Agents.js     |    23.08 |        0 |        0 |    27.27 |... 21,22,23,24,28 |
+  Tasks.js      |    13.33 |        0 |        0 |    13.64 |... 78,80,85,86,92 |
+ src/models     |      100 |      100 |      100 |      100 |                   |
+  Agent.js      |      100 |      100 |      100 |      100 |                   |
+  Task.js       |      100 |      100 |      100 |      100 |                   |
+ src/routes     |      100 |      100 |      100 |      100 |                   |
+  Agents.js     |      100 |      100 |      100 |      100 |                   |
+  Tasks.js      |      100 |      100 |      100 |      100 |                   |
+----------------|----------|----------|----------|----------|-------------------|
+
+Test Suites: 3 passed, 3 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        2.055s
+Ran all test suites.
