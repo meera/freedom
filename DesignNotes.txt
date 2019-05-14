@@ -5,17 +5,18 @@ I choose to complete the project using Nodejs, Express, MongoDb and used Postman
 Design Decisions: 
 
 Whether to keep Agent in-memory or in database.
-If Agent list is limited and Task are rapidly created and destroyed, I would have choosen to have Agents in memory.
-In memory approach would have limited server's ability to deploy on cluster - I choose to go with Database approach.
+I would have choosen to have Agents in memory if agent list was limited.
+In memory approach would have limited server's ability to deploy on cluster.
+I choose store Agents in Database - as it closely resembled real world scenario.
 
-I used two Collectons - Agent & Task. Both the collections have pointers to other collection.
-Commonly used fields are replicated for speed.
+I used two Collectons - Agent & Task. Each collections store reference to other collection.
+Commonly used fields are replicated at each collection for efficiency.
 
 By using Mongodb, I was able to leverage built-in functionality such as 
     - Search agents based on skill-suites
-    - Sort agents based on time task assigned and pick Agent who was assigned early.
+    - Sort agents based on time task assigned and pick Agent who was assigned a taks recently.
 
-TODO: 
+TODO:   
 -- Need to work on DockerContainer.
 -- More Integration Tests
 -- Performance Testing
