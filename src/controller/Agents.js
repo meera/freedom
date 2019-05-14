@@ -1,5 +1,8 @@
 const Agent = require('../models/Agent');
 
+/*
+    Output list of agents
+*/
 exports.list_agents = async (req,res) => {
   
     const agents = await Agent.find();
@@ -7,6 +10,9 @@ exports.list_agents = async (req,res) => {
  
  }
 
+ /*
+    Outputs single Agent.
+*/
  exports.get_an_agent = (req,res) => {
      
     const { error } = validateRequest(req.body); 

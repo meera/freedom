@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
  * NoSQL database (Mongodb) allowed me to save a reference to Task, and save frequently needed fields.
  * I have duplicated task_priority, and task_assigned_time_stamp for quicker searching.
  *  
+ * MongoDB generates unique ID for each Document, same are used to as identifiers.
  */
 const agentSchema = new mongoose.Schema(
     {
