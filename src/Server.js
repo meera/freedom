@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/freedomdb', {useNewUrlParser: true})
-  .then(() => console.log('Connected to MongoDB...'))
+const mongodbURL = process.env.MONGO || 'mongodb://localhost/freedomdb'
+
+mongoose.connect(mongodbURL, {useNewUrlParser: true})
+  .then(() => console.log('Connected to MongoDB @', mongodbURL))
   .catch(err => console.error('Could not connect to MongoDB...'));
   
 const app = require("./App");

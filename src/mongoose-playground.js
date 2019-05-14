@@ -1,3 +1,5 @@
+//This is Mongodb playground - Used to try out mongodb functionality. 
+
 const mongoose = require('mongoose');
 // Playground is separate collection - feel free to drop the collection
 mongoose.connect('mongodb://localhost/playground', {useNewUrlParser: true});

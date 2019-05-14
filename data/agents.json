@@ -1,9 +1,17 @@
 [
-    {"name": "Maya",
+    {"name": "Anna",
     "skills": ["sewing", "gardening"]
     },
     {
-        "name": "Revati",
+        "name": "Bob",
+        "skills": ["skill1", "skill2"]
+    },
+    {
+        "name": "Charles",
+        "skills": ["skill2", "skill3", "skill4"]
+    },
+    {
+        "name": "Rama",
         "skills": ["kickboxing", "martialarts"]
     }
 
