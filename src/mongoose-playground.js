@@ -65,13 +65,14 @@ async function createTask() {
         if(!agent) // No agent matched the condition 
             return false // 404 
    }
-   const newTask = new Task( {
-       name: 'New Task5',
-       skills: skills,
-       agent: agent._id
-   });
+   
 
    {
+    const newTask = new Task( {
+        name: 'New Task5',
+        skills: skills,
+        agent: agent._id
+    });
        // This block needs to be enclosed in transaction.
        // To make sure that agent and tasks are in sync.
 

@@ -3,10 +3,13 @@ const request = require('supertest');
 
 
   describe('GET /', function() {
-    it('responds with hello', function(done) {
+    it('Home Page', async (done) => {
       request(app)
         .get('/')
-        .expect('Hello Freedom')
-        .expect(200, done)
+        .expect('Hello Freedom!')
+        .expect(200);
+        done();
+        
     });
+    
   });
